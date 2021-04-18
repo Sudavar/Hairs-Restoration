@@ -21,15 +21,40 @@ const optionsModel = {
     return middleFactor + increase;
   }),
 
-  maxGrafts: {
-    zone1: 495,
-    zone2: 990,
-    zone3: 1575,
-    zone4: 1170,
-    zone5: 1395,
-    zone6: 1170,
-    zone7: 1080,
+  hairZones: {
+    zone1: {
+      maxGrafts: 495,
+      active: 0,
+    },
+    zone2: {
+      maxGrafts: 990,
+      active: 0,
+    },
+    zone3: {
+      maxGrafts: 1575,
+      active: 0,
+    },
+    zone4: {
+      maxGrafts: 1170,
+      active: 0,
+    },
+    zone5: {
+      maxGrafts: 1395,
+      active: 0,
+    },
+    zone6: {
+      maxGrafts: 1170,
+      active: 0,
+    },
+    zone7: {
+      maxGrafts: 1080,
+      active: 0,
+    },
   },
+  setHairZoneActive: action((state, payload) => {
+    // payload needs to have the zone id specified for activation
+    state.hairZones[payload] = 1;
+  }),
 };
 
 export default optionsModel;
