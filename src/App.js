@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { StoreProvider } from 'easy-peasy';
+import { ThemeProvider } from 'react-jss';
+
+import store from './store';
+import HairTable from './components/HairTable';
+
+const theme = {
+  colorPrimary: '#282c34',
+  colorText: '#ffffff',
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <StoreProvider store={store}>
+      <ThemeProvider theme={theme}>
+        <div className="App">
+          <h2>Graft Hair Calculator</h2>
+
+          <div className="panel left">
+            <HairTable />
+            {/* <Slider /> */}
+          </div>
+          <div className="panel right">
+            {/* <HeadDisplay /> */}
+          </div>
+        </div>
+      </ThemeProvider>
+    </StoreProvider>
   );
 }
 
