@@ -22,7 +22,12 @@ function App() {
             {/* <Slider /> */}
           </div>
           <div className="panel right">
-            {/* <HeadDisplay /> */}
+            <div className="img-header">
+              Patient head
+              <br />
+              <img src="https://hairmedclinics.com/Graft_Calculator_files/img/face2.png" alt="Patient head" />
+              {/* <HeadDisplay /> */}
+            </div>
           </div>
         </div>
       </ThemeProvider>
