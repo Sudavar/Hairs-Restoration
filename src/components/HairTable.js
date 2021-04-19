@@ -1,30 +1,24 @@
-/* eslint-disable no-console */
 import React from 'react';
-import { useStoreState, useStoreActions } from 'easy-peasy';
+import { useStoreState } from 'easy-peasy';
 
 import Table from './Table';
-// import PropTypes from 'prop-types';
 
 function HairTable() {
-  const setHairLossLevel = useStoreActions((actions) => actions.options.setHairLossLevel);
+  const { hairLossLevel, factor, hairZones } = useStoreState((state) => state.options);
 
-  // this will be the value of the slider
-  const tmp = 0.4;
-  setHairLossLevel(tmp);
+  const data = hairZones
+    .filter(({ active }) => active)
+    .map(({ name, maxGrafts }) => {
+      const grafts = Math.round(maxGrafts * hairLossLevel);
+      const hairs = Math.round(grafts * factor);
 
-  // Here we need a foreach active head zone
-  const zoneMaxGrafts = useStoreState((state) => state.options.hairZones.zone1.maxGrafts);
-  const zoneGrafts = tmp * zoneMaxGrafts;
-
-  const factor = useStoreState((state) => state.options.factor);
-  const hairs = zoneGrafts * factor;
+      return [name, grafts, hairs];
+    });
 
   return (
     <Table
       columns={['Estimated # of', 'Grafts', 'Hairs']}
-      data={[
-        ['Zone 1', zoneGrafts, hairs],
-      ]}
+      data={data}
     />
   );
 }

@@ -2,7 +2,7 @@
 import { action, computed } from 'easy-peasy';
 
 const optionsModel = {
-  hairLossLevel: 0,
+  hairLossLevel: 0.4, // TODO: Change that back to `0`
   setHairLossLevel: action((state, payload) => {
     state.hairLossLevel = payload;
   }),
@@ -21,39 +21,57 @@ const optionsModel = {
     return middleFactor + increase;
   }),
 
-  hairZones: {
-    zone1: {
+  hairZones: [
+    {
+      id: 'zone1',
+      name: 'Zone 1',
       maxGrafts: 495,
-      active: 0,
+      active: true, // TODO: Change that back to `false`
     },
-    zone2: {
+    {
+      id: 'zone2',
+      name: 'Zone 2',
       maxGrafts: 990,
-      active: 0,
+      active: true, // TODO: Change that back to `false`
     },
-    zone3: {
+    {
+      id: 'zone3',
+      name: 'Zone 3',
       maxGrafts: 1575,
-      active: 0,
+      active: false,
     },
-    zone4: {
+    {
+      id: 'zone4',
+      name: 'Zone 4',
       maxGrafts: 1170,
-      active: 0,
+      active: true, // TODO: Change that back to `false`
     },
-    zone5: {
+    {
+      id: 'zone5',
+      name: 'Zone 5',
       maxGrafts: 1395,
-      active: 0,
+      active: false,
     },
-    zone6: {
+    {
+      id: 'zone6',
+      name: 'Zone 6',
       maxGrafts: 1170,
-      active: 0,
+      active: false,
     },
-    zone7: {
+    {
+      id: 'zone7',
+      name: 'Zone 7',
       maxGrafts: 1080,
-      active: 0,
+      active: false,
     },
-  },
-  setHairZoneActive: action((state, payload) => {
-    // payload needs to have the zone id specified for activation
-    state.hairZones[payload] = 1;
+  ],
+
+  /**
+   * Toggle the `active` property of the hair zone with the given zone id
+   */
+  toggleHairZone: action((state, payload) => {
+    const index = state.hairZones.findIndex((item) => item.id === payload);
+    state.hairZones[index].active = !state.hairZones[index].active;
   }),
 };
 
