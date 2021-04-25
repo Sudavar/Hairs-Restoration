@@ -5,23 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #282c34;
-  color: #ffffff;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  background-color: #f2f2f2;
 }
 
 .App {
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   text-align: center;
-}
-
-.panel {
-  display: inline-block;
-  width: 49%;
-  vertical-align: top;
 }
