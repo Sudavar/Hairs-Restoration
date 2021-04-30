@@ -143,6 +143,7 @@ function Main() {
       <div className={classes.languages}>
         {languages.map((lang) => (
           <span
+            key={lang}
             className={classes.language}
             onClick={() => switchLanguage(lang)}
             role="button"
