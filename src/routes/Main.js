@@ -1,4 +1,7 @@
-import React from 'react';
+/* eslint-disable jsx-a11y/interactive-supports-focus */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+
+import React, { useState } from 'react';
 import { createUseStyles, useTheme } from 'react-jss';
 import { useStoreState, useStoreActions } from 'easy-peasy';
 import i18n from '../i18n';
@@ -53,7 +56,7 @@ const useStyles = createUseStyles({
   title: {
     color: ({ theme }) => theme.colors.dark,
     fontWeight: ({ theme }) => theme.fontWeights.regular,
-    fontSize: '2.4em',
+    fontSize: '3em',
     marginBottom: 0,
   },
   subtitle: {
@@ -88,14 +91,43 @@ const useStyles = createUseStyles({
       display: 'none',
     },
   },
+  languages: {
+    display: 'flex',
+    justifyContent: 'space-around',
+    width: '100%',
+    maxWidth: '200px',
+    margin: '20px 0',
+  },
+  language: {
+    color: ({ theme }) => theme.colors.primary,
+    fontWeight: ({ theme }) => theme.fontWeights.bold,
+    letterSpacing: '0.1rem',
+    cursor: 'pointer',
+  },
 });
 
 function Main() {
   const theme = useTheme();
   const classes = useStyles({ theme });
 
+  // We use `language` to force the component to re-render on language switch
+  // eslint-disable-next-line no-unused-vars
+  const [language, setLanguage] = useState(i18n.getLanguage());
+
   const hairLossLevel = useStoreState((state) => state.options.hairLossLevel);
   const setHairLossLevel = useStoreActions((actions) => actions.options.setHairLossLevel);
+
+  const languages = ['en', 'el'];
+
+  /**
+   * Switch the language to the given language
+   *
+   * @param {string} lang
+   */
+  const switchLanguage = (lang) => {
+    i18n.setLanguage(lang);
+    setLanguage(lang);
+  };
 
   return (
     <div className={classes.wrapper}>
@@ -106,6 +138,18 @@ function Main() {
         <p className={classes.subtitle}>
           {i18n.subtitle}
         </p>
+      </div>
+
+      <div className={classes.languages}>
+        {languages.map((lang) => (
+          <span
+            className={classes.language}
+            onClick={() => switchLanguage(lang)}
+            role="button"
+          >
+            {i18n[lang]}
+          </span>
+        ))}
       </div>
 
       <div className={classes.panels}>

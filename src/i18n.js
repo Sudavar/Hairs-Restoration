@@ -17,6 +17,8 @@ const strings = new LocalizedStrings({
     totallyBald: 'Totally bald',
     appearanceOfHairReestablished: 'Appearance of hair re-established',
     appearanceOfFullness: 'Appearance of fullness',
+    en: 'English',
+    el: 'Greek',
   },
   el: {
     title: 'Μετρητής Τριχοθυλακίων',
@@ -34,6 +36,8 @@ const strings = new LocalizedStrings({
     totallyBald: 'Τελείως φαλακρός',
     appearanceOfHairReestablished: 'Εμφάνιση αποκατάστασης μαλλιών',
     appearanceOfFullness: 'Εμφάνιση πληρότητας',
+    en: 'Αγγλικά',
+    el: 'Ελληνικά',
   },
 });
 

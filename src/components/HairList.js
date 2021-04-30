@@ -48,15 +48,25 @@ function HairList() {
     return `hsla(${h}, ${s}, ${l}, ${alpha})`;
   }, []);
 
+  const zoneNames = {
+    zone1: i18n.zone1,
+    zone2: i18n.zone2,
+    zone3: i18n.zone3,
+    zone4: i18n.zone4,
+    zone5: i18n.zone5,
+    zone6: i18n.zone6,
+    zone7: i18n.zone7,
+  };
+
   const data = hairZones
     .filter(({ active }) => active)
-    .map(({ id, name, maxGrafts }) => {
+    .map(({ id, maxGrafts }) => {
       const grafts = Math.round(maxGrafts * hairLossLevel);
       const hairs = Math.round(grafts * factor);
 
       return {
         id,
-        name,
+        name: zoneNames[id],
         grafts,
         hairs,
       };

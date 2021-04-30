@@ -1,6 +1,5 @@
 /* eslint-disable no-param-reassign */
 import { action, computed } from 'easy-peasy';
-import i18n from '../../i18n';
 
 const optionsModel = {
   hairLossLevel: 0,
@@ -26,49 +25,42 @@ const optionsModel = {
     {
       id: 'zone1',
       number: 1,
-      name: i18n.zone1,
       maxGrafts: 495,
       active: false,
     },
     {
       id: 'zone2',
       number: 2,
-      name: i18n.zone2,
       maxGrafts: 990,
       active: false,
     },
     {
       id: 'zone3',
       number: 3,
-      name: i18n.zone3,
       maxGrafts: 1575,
       active: false,
     },
     {
       id: 'zone4',
       number: 4,
-      name: i18n.zone4,
       maxGrafts: 1170,
       active: false,
     },
     {
       id: 'zone5',
       number: 5,
-      name: i18n.zone5,
       maxGrafts: 1395,
       active: false,
     },
     {
       id: 'zone6',
       number: 6,
-      name: i18n.zone6,
       maxGrafts: 1170,
       active: false,
     },
     {
       id: 'zone7',
       number: 7,
-      name: i18n.zone7,
       maxGrafts: 1080,
       active: false,
     },
