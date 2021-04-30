@@ -61,6 +61,28 @@ const useStyles = createUseStyles({
     fontWeight: ({ theme }) => theme.fontWeights.bold,
     fontSize: '1em',
   },
+  sliderWrapper: {
+    position: 'relative',
+  },
+  sliderLegend: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: 'calc(100% - 2.8em)',
+    height: '100%',
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    fontWeight: ({ theme }) => theme.fontWeights.bold,
+    fontSize: '0.6em',
+    letterSpacing: '0.2rem',
+    textTransform: 'uppercase',
+    padding: '0 1.4em',
+    mixBlendMode: 'difference',
+    pointerEvents: 'none',
+    color: '#fff',
+    userSelect: 'none',
+  },
 });
 
 function Main() {
@@ -95,11 +117,18 @@ function Main() {
         </Panel>
 
         <Panel style={{ gridArea: 'list' }}>
-          <Slider
-            steps={45}
-            onChange={setHairLossLevel}
-            initialValue={hairLossLevel}
-          />
+          <div className={classes.sliderWrapper}>
+            <Slider
+              steps={45}
+              onChange={setHairLossLevel}
+              initialValue={hairLossLevel}
+            />
+            <div className={classes.sliderLegend}>
+              <span>{i18n.totallyBald}</span>
+              <span>{i18n.appearanceOfHairReestablished}</span>
+              <span>{i18n.appearanceOfFullness}</span>
+            </div>
+          </div>
           <HairList />
         </Panel>
       </div>

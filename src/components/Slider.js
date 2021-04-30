@@ -17,6 +17,9 @@ const useStyles = createUseStyles({
     backgroundColor: 'rgba(0, 0, 0, 0.2)',
     position: 'relative',
     cursor: 'pointer',
+    '&:focus': {
+      outline: 'none',
+    },
   },
   bar: {
     position: 'absolute',

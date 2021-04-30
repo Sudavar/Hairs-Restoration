@@ -14,6 +14,9 @@ const strings = new LocalizedStrings({
     total: 'Total',
     grafts: 'Grafts',
     hairs: 'Hairs',
+    totallyBald: 'Totally bald',
+    appearanceOfHairReestablished: 'Appearance of hair re-established',
+    appearanceOfFullness: 'Appearance of fullness',
   },
   el: {
     title: 'Μετρητής Τριχοθυλακίων',
@@ -28,6 +31,9 @@ const strings = new LocalizedStrings({
     total: 'Σύνολο',
     grafts: 'Μοσχεύματα',
     hairs: 'Τρίχες',
+    totallyBald: 'Τελείως φαλακρός',
+    appearanceOfHairReestablished: 'Εμφάνιση αποκατάστασης μαλλιών',
+    appearanceOfFullness: 'Εμφάνιση πληρότητας',
   },
 });
 
