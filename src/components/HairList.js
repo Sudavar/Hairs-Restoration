@@ -2,6 +2,8 @@ import React, { useCallback } from 'react';
 import { useStoreState } from 'easy-peasy';
 import { createUseStyles, useTheme } from 'react-jss';
 
+import i18n from '../i18n';
+
 const useStyles = createUseStyles({
   list: {
     fontSize: '1em',
@@ -94,8 +96,8 @@ function HairList() {
           listItemColor: 'transparent',
           zoneNameColor: 'transparent',
           name: '',
-          grafts: 'Grafts',
-          hairs: 'Hairs',
+          grafts: i18n.grafts,
+          hairs: i18n.hairs,
         })
       ) : null}
 
@@ -110,7 +112,7 @@ function HairList() {
           id: 'sum',
           listItemColor: 'rgba(0, 0, 0, 0.2)',
           zoneNameColor: '#000',
-          name: 'Sum',
+          name: i18n.total,
           grafts: sumGrafts,
           hairs: sumHairs,
         })

@@ -3,7 +3,7 @@ import { action, computed } from 'easy-peasy';
 import i18n from '../../i18n';
 
 const optionsModel = {
-  hairLossLevel: 0.4, // TODO: Change that back to `0`
+  hairLossLevel: 0,
   setHairLossLevel: action((state, payload) => {
     state.hairLossLevel = payload;
   }),

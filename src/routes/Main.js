@@ -1,11 +1,12 @@
 import React from 'react';
 import { createUseStyles, useTheme } from 'react-jss';
-
+import { useStoreState, useStoreActions } from 'easy-peasy';
 import i18n from '../i18n';
 
 import Panel from '../components/Panel';
 import HairList from '../components/HairList';
 import Head from '../components/Head';
+import Slider from '../components/Slider';
 
 const useStyles = createUseStyles({
   wrapper: {
@@ -66,6 +67,9 @@ function Main() {
   const theme = useTheme();
   const classes = useStyles({ theme });
 
+  const hairLossLevel = useStoreState((state) => state.options.hairLossLevel);
+  const setHairLossLevel = useStoreActions((actions) => actions.options.setHairLossLevel);
+
   return (
     <div className={classes.wrapper}>
       <div className={classes.header}>
@@ -91,6 +95,11 @@ function Main() {
         </Panel>
 
         <Panel style={{ gridArea: 'list' }}>
+          <Slider
+            steps={45}
+            onChange={setHairLossLevel}
+            initialValue={hairLossLevel}
+          />
           <HairList />
         </Panel>
       </div>

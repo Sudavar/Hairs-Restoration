@@ -11,6 +11,9 @@ const strings = new LocalizedStrings({
     zone5: 'Zone 5',
     zone6: 'Zone 6',
     zone7: 'Zone 7',
+    total: 'Total',
+    grafts: 'Grafts',
+    hairs: 'Hairs',
   },
   el: {
     title: 'Μετρητής Τριχοθυλακίων',
@@ -22,6 +25,9 @@ const strings = new LocalizedStrings({
     zone5: 'Ζώνη 5',
     zone6: 'Ζώνη 6',
     zone7: 'Ζώνη 7',
+    total: 'Σύνολο',
+    grafts: 'Μοσχεύματα',
+    hairs: 'Τρίχες',
   },
 });
 
