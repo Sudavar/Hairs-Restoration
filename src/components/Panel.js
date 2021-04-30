@@ -7,17 +7,17 @@ const useStyles = createUseStyles({
     backgroundColor: ({ theme }) => theme.colors.light,
     border: ({ theme }) => `1px solid ${theme.colors.intermediate}`,
     borderRadius: 34,
-    maxWidth: '260px',
+    width: 'calc(100% - 40px)',
     padding: '20px',
   },
 });
 
-function Panel({ children }) {
+function Panel({ children, style }) {
   const theme = useTheme();
   const classes = useStyles({ theme });
 
   return (
-    <div className={classes.panel}>
+    <div className={classes.panel} style={{ ...style }}>
       {children}
     </div>
   );
@@ -28,6 +28,14 @@ Panel.propTypes = {
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
   ]).isRequired,
+  style: PropTypes.objectOf(PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ])),
+};
+
+Panel.defaultProps = {
+  style: {},
 };
 
 export default Panel;

@@ -25,45 +25,52 @@ const optionsModel = {
   hairZones: [
     {
       id: 'zone1',
+      number: 1,
       name: i18n.zone1,
       maxGrafts: 495,
-      active: true, // TODO: Change that back to `false`
+      active: true,
     },
     {
       id: 'zone2',
+      number: 2,
       name: i18n.zone2,
       maxGrafts: 990,
-      active: true, // TODO: Change that back to `false`
+      active: true,
     },
     {
       id: 'zone3',
+      number: 3,
       name: i18n.zone3,
       maxGrafts: 1575,
-      active: false,
+      active: true,
     },
     {
       id: 'zone4',
+      number: 4,
       name: i18n.zone4,
       maxGrafts: 1170,
-      active: true, // TODO: Change that back to `false`
+      active: true,
     },
     {
       id: 'zone5',
+      number: 5,
       name: i18n.zone5,
       maxGrafts: 1395,
-      active: false,
+      active: true,
     },
     {
       id: 'zone6',
+      number: 6,
       name: i18n.zone6,
       maxGrafts: 1170,
-      active: false,
+      active: true,
     },
     {
       id: 'zone7',
+      number: 7,
       name: i18n.zone7,
       maxGrafts: 1080,
-      active: false,
+      active: true,
     },
   ],
 

@@ -9,12 +9,25 @@ const useStyles = createUseStyles({
     padding: 0,
   },
   listItem: {
+    fontWeight: ({ theme }) => theme.fontWeights.bold,
+    display: 'flex',
+    justifyContent: 'space-between',
     borderRadius: 9999,
-    padding: '0.25em 1em',
+    padding: '0.8em 0.6em',
     marginBottom: '0.4em',
     '&:last-child': {
       marginBottom: 0,
     },
+  },
+  column: {
+    width: '100%',
+    margin: 0,
+  },
+  zoneName: {
+    backgroundColor: '#000000',
+    borderRadius: '9999px',
+    color: '#ffffff',
+    padding: '0.25em 0.8em',
   },
 });
 
@@ -24,9 +37,10 @@ function HairList() {
   const theme = useTheme();
   const classes = useStyles({ theme });
 
-  const getZoneColor = useCallback((zoneId) => (
-    theme.colors.zones[zoneId] || theme.colors.zones.default
-  ), []);
+  const getZoneColor = useCallback((zoneId, alpha = 1) => {
+    const { h, s, l } = theme.colors.zones[zoneId] || theme.colors.zones.default;
+    return `hsla(${h}, ${s}, ${l}, ${alpha})`;
+  }, []);
 
   const data = hairZones
     .filter(({ active }) => active)
@@ -42,19 +56,65 @@ function HairList() {
       };
     });
 
+  const sumGrafts = data.reduce((acc, cur) => acc + cur.grafts, 0);
+  const sumHairs = data.reduce((acc, cur) => acc + cur.hairs, 0);
+
+  const renderListItem = (item) => {
+    const listItemColor = item.listItemColor || 'transparent';
+    const zoneNameColor = item.zoneNameColor || 'transparent';
+
+    return (
+      <li
+        key={item.id}
+        className={classes.listItem}
+        style={{
+          backgroundColor: listItemColor,
+          color: '#000',
+        }}
+      >
+        <p className={classes.column}>
+          <span
+            className={classes.zoneName}
+            style={{ backgroundColor: zoneNameColor }}
+          >
+            {item.name}
+          </span>
+        </p>
+        <p className={classes.column}>{item.grafts}</p>
+        <p className={classes.column}>{item.hairs}</p>
+      </li>
+    );
+  };
+
   return (
     <ul className={classes.list}>
-      {data.map((item) => (
-        <li
-          key={item.id}
-          className={classes.listItem}
-          style={{ backgroundColor: getZoneColor(item.id) }}
-        >
-          <span>{item.name}</span>
-          <span>{item.grafts}</span>
-          <span>{item.hairs}</span>
-        </li>
-      ))}
+      {data.length > 0 ? (
+        renderListItem({
+          id: 'headers',
+          listItemColor: 'transparent',
+          zoneNameColor: 'transparent',
+          name: '',
+          grafts: 'Grafts',
+          hairs: 'Hairs',
+        })
+      ) : null}
+
+      {data.map((item) => renderListItem({
+        ...item,
+        listItemColor: getZoneColor(item.id, 0.2),
+        zoneNameColor: getZoneColor(item.id),
+      }))}
+
+      {data.length > 0 ? (
+        renderListItem({
+          id: 'sum',
+          listItemColor: 'rgba(0, 0, 0, 0.2)',
+          zoneNameColor: '#000',
+          name: 'Sum',
+          grafts: sumGrafts,
+          hairs: sumHairs,
+        })
+      ) : null}
     </ul>
   );
 }

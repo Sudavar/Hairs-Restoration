@@ -13,15 +13,19 @@ const theme = {
     intermediate: '#e6e6e6',
     dark: '#000000',
     zones: {
-      default: 'hsl(231deg 100% 68%)',
-      zone1: 'hsl(231deg 100% 68%)',
-      zone2: 'hsl(183deg 87% 53%)',
-      zone3: 'hsl(45deg 96% 58%)',
-      zone4: 'hsl(33deg 100% 50%)',
-      zone5: 'hsl(126deg 100% 47%)',
-      zone6: 'hsl(287deg 100% 64%)',
-      zone7: 'hsl(351deg 100% 62%)',
+      default: { h: '231deg', s: '100%', l: '68%' },
+      zone1: { h: '231deg', s: '100%', l: '68%' },
+      zone2: { h: '183deg', s: '87%', l: '53%' },
+      zone3: { h: '45deg', s: '96%', l: '58%' },
+      zone4: { h: '33deg', s: '100%', l: '50%' },
+      zone5: { h: '126deg', s: '100%', l: '47%' },
+      zone6: { h: '287deg', s: '100%', l: '64%' },
+      zone7: { h: '351deg', s: '100%', l: '62%' },
     },
+  },
+  fontWeights: {
+    regular: 400,
+    bold: 600,
   },
 };
 
