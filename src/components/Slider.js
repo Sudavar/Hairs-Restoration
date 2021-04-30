@@ -12,9 +12,9 @@ import { clamp } from '../common/Utils';
 const useStyles = createUseStyles({
   container: {
     width: '100%',
-    height: '20px',
+    height: '40px',
     borderRadius: '9999px',
-    backgroundColor: 'rgba(0, 0, 0, 0.2)',
+    backgroundColor: '#e6e6e6',
     position: 'relative',
     cursor: 'pointer',
     '&:focus': {
@@ -194,7 +194,7 @@ function Slider({ steps, onChange, initialValue }) {
       onMouseDown={onMouseDown}
       onKeyDown={onKeyDown}
       role="slider"
-      aria-valuenow={percentage}
+      aria-valuenow={Math.round(percentage)}
       tabIndex={0}
       ref={sliderRef}
     >

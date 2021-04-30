@@ -68,7 +68,7 @@ const useStyles = createUseStyles({
     position: 'absolute',
     top: 0,
     left: 0,
-    width: 'calc(100% - 2.8em)',
+    width: 'calc(100% - 4.8em)',
     height: '100%',
     display: 'flex',
     justifyContent: 'space-between',
@@ -77,11 +77,16 @@ const useStyles = createUseStyles({
     fontSize: '0.6em',
     letterSpacing: '0.2rem',
     textTransform: 'uppercase',
-    padding: '0 1.4em',
+    padding: '0 2.4em',
     mixBlendMode: 'difference',
     pointerEvents: 'none',
     color: '#fff',
     userSelect: 'none',
+  },
+  '@media screen and (max-width: 800px)': {
+    sliderLegend: {
+      display: 'none',
+    },
   },
 });
 
@@ -116,7 +121,13 @@ function Main() {
           <Head side="back" />
         </Panel>
 
-        <Panel style={{ gridArea: 'list' }}>
+        <Panel
+          style={{
+            gridArea: 'list',
+            width: 'calc(100% - 80px)',
+            padding: '40px',
+          }}
+        >
           <div className={classes.sliderWrapper}>
             <Slider
               steps={45}

@@ -9,6 +9,7 @@ const useStyles = createUseStyles({
     fontSize: '1em',
     listStyleType: 'none',
     padding: 0,
+    margin: 0,
   },
   listItem: {
     fontWeight: ({ theme }) => theme.fontWeights.bold,
@@ -17,6 +18,9 @@ const useStyles = createUseStyles({
     borderRadius: 9999,
     padding: '0.8em 0.6em',
     marginBottom: '0.4em',
+    '&:first-child': {
+      marginTop: '0.4em',
+    },
     '&:last-child': {
       marginBottom: 0,
     },
@@ -110,7 +114,7 @@ function HairList() {
       {data.length > 0 ? (
         renderListItem({
           id: 'sum',
-          listItemColor: 'rgba(0, 0, 0, 0.2)',
+          listItemColor: '#e6e6e6',
           zoneNameColor: '#000',
           name: i18n.total,
           grafts: sumGrafts,

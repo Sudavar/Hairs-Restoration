@@ -6,7 +6,7 @@ const useStyles = createUseStyles({
   panel: {
     backgroundColor: ({ theme }) => theme.colors.light,
     border: ({ theme }) => `1px solid ${theme.colors.intermediate}`,
-    borderRadius: 34,
+    borderRadius: 45,
     width: 'calc(100% - 40px)',
     padding: '20px',
   },
