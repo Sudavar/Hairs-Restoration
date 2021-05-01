@@ -17,7 +17,7 @@ function Head({ side }) {
     const { active } = hairZones.find((item) => item.id === zoneId);
 
     if (!active) {
-      return theme.colors.intermediate;
+      return theme.colors.unselectedZone;
     }
 
     const { h, s, l } = theme.colors.zones[zoneId] || theme.colors.zones.default;

@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
 import { useStoreState } from 'easy-peasy';
 import { createUseStyles, useTheme } from 'react-jss';
+import { motion } from 'framer-motion';
 
 import i18n from '../i18n';
 
@@ -80,12 +81,18 @@ function HairList() {
     const zoneNameColor = item.zoneNameColor || 'transparent';
 
     return (
-      <li
+      <motion.li
         key={item.id}
         className={classes.listItem}
         style={{
           backgroundColor: listItemColor,
           color: '#000',
+        }}
+        layoutId={item.id}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{
+          opacity: { duration: 0.4 },
         }}
       >
         <p className={classes.column}>
@@ -98,7 +105,7 @@ function HairList() {
         </p>
         <p className={classes.column}>{item.grafts}</p>
         <p className={classes.column}>{item.hairs}</p>
-      </li>
+      </motion.li>
     );
   };
 

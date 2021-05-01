@@ -15,7 +15,5 @@ body {
 }
 
 .head {
-  fill: #ffffff;
-  stroke: hsl(0deg 0% 53% / 40%);
-  stroke-width: 10;
+  fill: #e6e6e6;
 }

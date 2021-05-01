@@ -12,7 +12,7 @@ const theme = {
     light: '#ffffff',
     intermediate: '#e6e6e6',
     dark: '#000000',
-    background: '#878787',
+    unselectedZone: '#c5c5c5',
     zones: {
       default: { h: '287deg', s: '100%', l: '64%' },
       zone1: { h: '287deg', s: '100%', l: '64%' },

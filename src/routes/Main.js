@@ -6,64 +6,72 @@ import { createUseStyles, useTheme } from 'react-jss';
 import { useStoreState, useStoreActions } from 'easy-peasy';
 import i18n from '../i18n';
 
+import Wrapper from '../components/Wrapper';
 import Panel from '../components/Panel';
+
 import HairList from '../components/HairList';
 import Head from '../components/Head';
 import Slider from '../components/Slider';
 
 const useStyles = createUseStyles({
-  wrapper: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    padding: '10px',
-  },
-  panels: {
+  headPanels: {
     display: 'grid',
     gridTemplate: `
       'rear'
       'top'
       'back'
-      'list'
     `,
     justifyItems: 'center',
     alignItems: 'center',
     gap: '14px',
-    width: 'calc(100% - 20px)',
-    maxWidth: '1000px',
     marginTop: '2em',
+    width: '100%',
+    maxWidth: '1000px',
+    boxSizing: 'border-box',
   },
   '@media screen and (min-width: 480px)': {
-    panels: {
+    headPanels: {
       gridTemplate: `
         'rear top'
         'back .'
-        'list list'
       `,
     },
   },
   '@media screen and (min-width: 900px)': {
-    panels: {
+    headPanels: {
       gridTemplate: `
         'rear top back'
-        'list list list'
       `,
     },
   },
-  head: {
+  headerWrapper: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    gap: '20px',
+    marginTop: '2em',
+  },
+  header: {
     textAlign: 'center',
-    display: 'grid',
-    gridTemplateColumns: '15% 35% 35% 15%',
+  },
+  logoContainer: {
     width: '100%',
+    maxWidth: '240px',
   },
   logo: {
-    width: '400px',
+    width: '100%',
+  },
+  '@media screen and (min-width: 700px)': {
+    headerWrapper: {
+      flexDirection: 'row',
+    },
   },
   title: {
     color: ({ theme }) => theme.colors.dark,
     fontWeight: ({ theme }) => theme.fontWeights.regular,
     fontSize: '2.6em',
-    marginBottom: 0,
+    margin: 0,
   },
   subtitle: {
     color: ({ theme }) => theme.colors.primary,
@@ -136,13 +144,13 @@ function Main() {
   };
 
   return (
-    <div className={classes.wrapper}>
-      <div className={classes.head}>
-        <div />
-        <div className={classes.headerBlock}>
-          <img src="logo.jpg" alt="Company logo" className={classes.logo} />
+    <Wrapper>
+      <div className={classes.headerWrapper}>
+        <div className={classes.logoContainer}>
+          <img src="logo.jpg" alt="DHI Global Medical Group" className={classes.logo} />
         </div>
-        <div className={classes.headerBlock}>
+
+        <div className={classes.header}>
           <h1 className={classes.title}>
             {i18n.title}
           </h1>
@@ -162,10 +170,9 @@ function Main() {
             ))}
           </div>
         </div>
-        <div />
       </div>
 
-      <div className={classes.panels}>
+      <div className={classes.headPanels}>
         <Panel style={{ gridArea: 'rear' }}>
           <Head side="rear" />
         </Panel>
@@ -177,32 +184,34 @@ function Main() {
         <Panel style={{ gridArea: 'back' }}>
           <Head side="back" />
         </Panel>
-
-        <div
-          style={{
-            gridArea: 'list',
-            width: 'calc(100% - 80px)',
-            padding: '40px',
-            background: theme.colors.light,
-            borderRadius: 45,
-          }}
-        >
-          <div className={classes.sliderWrapper}>
-            <Slider
-              steps={45}
-              onChange={setHairLossLevel}
-              initialValue={hairLossLevel}
-            />
-            <div className={classes.sliderLegend}>
-              <span>{i18n.totallyBald}</span>
-              <span>{i18n.appearanceOfHairReestablished}</span>
-              <span>{i18n.appearanceOfFullness}</span>
-            </div>
-          </div>
-          <HairList />
-        </div>
       </div>
-    </div>
+
+      <Panel
+        style={{
+          width: '100%',
+          maxWidth: '1000px',
+          padding: '40px',
+          background: theme.colors.light,
+          borderRadius: 45,
+          boxSizing: 'border-box',
+          marginTop: '14px',
+        }}
+      >
+        <div className={classes.sliderWrapper}>
+          <Slider
+            steps={45}
+            onChange={setHairLossLevel}
+            initialValue={hairLossLevel}
+          />
+          <div className={classes.sliderLegend}>
+            <span>{i18n.totallyBald}</span>
+            <span>{i18n.appearanceOfHairReestablished}</span>
+            <span>{i18n.appearanceOfFullness}</span>
+          </div>
+        </div>
+        <HairList />
+      </Panel>
+    </Wrapper>
   );
 }
 

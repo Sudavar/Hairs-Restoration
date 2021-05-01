@@ -3,27 +3,26 @@ import PropTypes from 'prop-types';
 import { createUseStyles, useTheme } from 'react-jss';
 
 const useStyles = createUseStyles({
-  panel: {
-    backgroundColor: ({ theme }) => theme.colors.light,
-    border: ({ theme }) => `1px solid ${theme.colors.intermediate}`,
-    borderRadius: 45,
-    width: 'calc(100% - 40px)',
-    padding: '20px',
+  wrapper: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding: '10px',
   },
 });
 
-function Panel({ children, style }) {
+function Wrapper({ children, style }) {
   const theme = useTheme();
   const classes = useStyles({ theme });
 
   return (
-    <div className={classes.panel} style={{ ...style }}>
+    <div className={classes.wrapper} style={{ ...style }}>
       {children}
     </div>
   );
 }
 
-Panel.propTypes = {
+Wrapper.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
@@ -34,8 +33,8 @@ Panel.propTypes = {
   ])),
 };
 
-Panel.defaultProps = {
+Wrapper.defaultProps = {
   style: {},
 };
 
-export default Panel;
+export default Wrapper;

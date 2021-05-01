@@ -16,6 +16,7 @@ const useStyles = createUseStyles({
     borderRadius: '9999px',
     backgroundColor: '#e6e6e6',
     position: 'relative',
+    overflow: 'hidden',
     cursor: 'pointer',
     '&:focus': {
       outline: 'none',
