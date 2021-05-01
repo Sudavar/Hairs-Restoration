@@ -50,13 +50,19 @@ const useStyles = createUseStyles({
       `,
     },
   },
-  header: {
+  head: {
     textAlign: 'center',
+    display: 'grid',
+    gridTemplateColumns: '15% 35% 35% 15%',
+    width: '100%',
+  },
+  logo: {
+    width: '400px',
   },
   title: {
     color: ({ theme }) => theme.colors.dark,
     fontWeight: ({ theme }) => theme.fontWeights.regular,
-    fontSize: '3em',
+    fontSize: '2.6em',
     marginBottom: 0,
   },
   subtitle: {
@@ -96,7 +102,7 @@ const useStyles = createUseStyles({
     justifyContent: 'space-around',
     width: '100%',
     maxWidth: '200px',
-    margin: '20px 0',
+    margin: '0 auto',
   },
   language: {
     color: ({ theme }) => theme.colors.primary,
@@ -131,26 +137,32 @@ function Main() {
 
   return (
     <div className={classes.wrapper}>
-      <div className={classes.header}>
-        <h1 className={classes.title}>
-          {i18n.title}
-        </h1>
-        <p className={classes.subtitle}>
-          {i18n.subtitle}
-        </p>
-      </div>
-
-      <div className={classes.languages}>
-        {languages.map((lang) => (
-          <span
-            key={lang}
-            className={classes.language}
-            onClick={() => switchLanguage(lang)}
-            role="button"
-          >
-            {i18n[lang]}
-          </span>
-        ))}
+      <div className={classes.head}>
+        <div />
+        <div className={classes.headerBlock}>
+          <img src="logo.jpg" alt="Company logo" className={classes.logo} />
+        </div>
+        <div className={classes.headerBlock}>
+          <h1 className={classes.title}>
+            {i18n.title}
+          </h1>
+          <p className={classes.subtitle}>
+            {i18n.subtitle}
+          </p>
+          <div className={classes.languages}>
+            {languages.map((lang) => (
+              <span
+                key={lang}
+                className={classes.language}
+                onClick={() => switchLanguage(lang)}
+                role="button"
+              >
+                {i18n[lang]}
+              </span>
+            ))}
+          </div>
+        </div>
+        <div />
       </div>
 
       <div className={classes.panels}>
@@ -166,11 +178,13 @@ function Main() {
           <Head side="back" />
         </Panel>
 
-        <Panel
+        <div
           style={{
             gridArea: 'list',
             width: 'calc(100% - 80px)',
             padding: '40px',
+            background: theme.colors.light,
+            borderRadius: 45,
           }}
         >
           <div className={classes.sliderWrapper}>
@@ -186,7 +200,7 @@ function Main() {
             </div>
           </div>
           <HairList />
-        </Panel>
+        </div>
       </div>
     </div>
   );

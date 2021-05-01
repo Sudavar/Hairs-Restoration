@@ -3,7 +3,7 @@ import LocalizedStrings from 'react-localization';
 const strings = new LocalizedStrings({
   en: {
     title: 'Graft Hair Calculator',
-    subtitle: 'Estimate the # of grafts you may need in three easy steps.',
+    subtitle: 'Estimate the # of grafts you may need.',
     zone1: 'Zone 1',
     zone2: 'Zone 2',
     zone3: 'Zone 3',
@@ -22,7 +22,7 @@ const strings = new LocalizedStrings({
   },
   el: {
     title: 'Μετρητής Τριχοθυλακίων',
-    subtitle: 'Υπολογίστε τον αριθμό των μοσχευμάτων που χρειάζεστε σε τρία εύκολα βήματα.',
+    subtitle: 'Υπολογίστε τον αριθμό των μοσχευμάτων που χρειάζεστε.',
     zone1: 'Ζώνη 1',
     zone2: 'Ζώνη 2',
     zone3: 'Ζώνη 3',
@@ -33,9 +33,9 @@ const strings = new LocalizedStrings({
     total: 'Σύνολο',
     grafts: 'Μοσχεύματα',
     hairs: 'Τρίχες',
-    totallyBald: 'Τελείως φαλακρός',
-    appearanceOfHairReestablished: 'Εμφάνιση αποκατάστασης μαλλιών',
-    appearanceOfFullness: 'Εμφάνιση πληρότητας',
+    totallyBald: 'Φαλακρoς',
+    appearanceOfHairReestablished: 'Αποκατaσταση',
+    appearanceOfFullness: 'Πληρoτητα',
     en: 'Αγγλικά',
     el: 'Ελληνικά',
   },

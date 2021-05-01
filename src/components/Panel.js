@@ -4,7 +4,7 @@ import { createUseStyles, useTheme } from 'react-jss';
 
 const useStyles = createUseStyles({
   panel: {
-    backgroundColor: ({ theme }) => theme.colors.light,
+    backgroundColor: ({ theme }) => theme.colors.background,
     border: ({ theme }) => `1px solid ${theme.colors.intermediate}`,
     borderRadius: 45,
     width: 'calc(100% - 40px)',
